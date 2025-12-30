@@ -21,7 +21,14 @@ const limiter = rateLimit({
 //app.use("/api/", limiter);
 app.use(limiter);
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:5173",          // local dev
+    "https://quiz-platform-three-lemon.vercel.app/" // frontend URL
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 
 app.use(express.json());
 
