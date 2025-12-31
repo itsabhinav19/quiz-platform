@@ -79,11 +79,12 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000", // React (CRA / Next)
-      "http://localhost:5173", // Vite
+      //"http://localhost:5173", // Vite
       "https://quiz-platform-three-lemon.vercel.app/", // deployed frontend
     ],
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+     methods: ["GET", "POST", "PUT", "DELETE"],
+    //methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    //allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
