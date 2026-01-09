@@ -78,16 +78,19 @@ app.use(limiter);
 app.use(
   cors({
     origin: [
-      "http://localhost:3000", // React (CRA / Next)
-      //"http://localhost:5173", // Vite
-      "https://quiz-platform-three-lemon.vercel.app/", // deployed frontend
+      "http://localhost:3000",
+      "http://localhost:5173",
+      "https://quiz-platform-three-lemon.vercel.app"
     ],
-     methods: ["GET", "POST", "PUT", "DELETE"],
-    //methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    //allowedHeaders: ["Content-Type", "Authorization"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
+
+// IMPORTANT: handle preflight
+app.options("*", cors());
+
 
 app.use(express.json());
 
